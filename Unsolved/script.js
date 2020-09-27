@@ -24,6 +24,7 @@ function generatePassword() {
   var numericCharacters = false;
   var specialCharacters = false;
   var inputCheck = false;
+  var characterCheck = false;
 
   //prompt choose length of password 8-128
   var passwordLength = prompt("For password length enter a number between 8 - 128.");
@@ -34,9 +35,9 @@ function generatePassword() {
 
 
 
-// check for positive integer between 8-128
+  // check for positive integer between 8-128
   console.log(Number.isInteger(numberOfChar));
-  
+
 
   //user validation
   while (inputCheck === false) {
@@ -54,45 +55,54 @@ function generatePassword() {
 
   //console.log('moving on');
 
+  while (characterCheck === false) {
+    //prompt do you want lowercase?
+    lowercaseLetters = confirm('Do you want lowercase characters in your password?');
 
-  //prompt do you want lowercase?
-  lowercaseLetters = confirm('Do you want lowercase characters in your password?');
+    //prompt do you want uppercase?
+    uppercaseLetters = confirm('Do you want uppercase characters in your password?');
 
-  //prompt do you want uppercase?
-  uppercaseLetters = confirm('Do you want uppercase characters in your password?');
+    //prompt do you want numeric?
+    numericCharacters = confirm('Do you want numeric characters in your password?');
 
-  //prompt do you want numeric?
-  numericCharacters = confirm('Do you want numeric characters in your password?');
-
-  //prompt do you want special characters?
-  specialCharacters = confirm('Do you want special characters in your password?');
+    //prompt do you want special characters?
+    specialCharacters = confirm('Do you want special characters in your password?');
 
 
-  console.log(lowercaseLetters);
-  console.log(uppercaseLetters);
-  console.log(numericCharacters);
-  console.log(specialCharacters);
+    console.log(lowercaseLetters);
+    console.log(uppercaseLetters);
+    console.log(numericCharacters);
+    console.log(specialCharacters);
 
-  //add lowercase to charSet
-  if (lowercaseLetters) {
-    characterSet = characterSet + 'abcdefghijklmnopqrstuvwxyz';
+    //add lowercase to charSet
+    if (lowercaseLetters) {
+      characterSet = characterSet + 'abcdefghijklmnopqrstuvwxyz';
+      characterCheck = true;
+    }
+
+    //add uppercase to charSet
+    if (uppercaseLetters) {
+      characterSet = characterSet + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      characterCheck = true;
+    }
+
+    //add numeric to charSet
+    if (numericCharacters) {
+      characterSet = characterSet + '1234567890';
+      characterCheck = true;
+    }
+
+    //add special to charSet
+    if (specialCharacters) {
+      characterSet = characterSet + '!@#$%^&*()'
+      characterCheck = true;
+    }
+
+    if (characterCheck === false)
+    alert('Please choose at least one type of characters.');
   }
-  
-  //add uppercase to charSet
-  if (uppercaseLetters) {
-    characterSet = characterSet + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  }
 
-  //add numeric to charSet
-  if (numericCharacters) {
-    characterSet = characterSet + '1234567890';
-  }
-
-  //add special to charSet
-  if (specialCharacters) {
-    characterSet = characterSet + '!@#$%^&*()'
-  }
-
+  console.log(characterSet);
 
   //check that at least one type of character was selected.
 
