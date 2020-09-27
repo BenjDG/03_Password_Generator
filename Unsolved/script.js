@@ -74,14 +74,25 @@ function generatePassword() {
   console.log(specialCharacters);
 
   //add lowercase to charSet
-  if (lowercaseLetters === true) {
+  if (lowercaseLetters) {
     characterSet = characterSet + 'abcdefghijklmnopqrstuvwxyz';
   }
   
   //add uppercase to charSet
-  if (uppercaseLetters === true) {
+  if (uppercaseLetters) {
     characterSet = characterSet + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   }
+
+  //add numeric to charSet
+  if (numericCharacters) {
+    characterSet = characterSet + '1234567890';
+  }
+
+  //add special to charSet
+  if (specialCharacters) {
+    characterSet = characterSet + '!@#$%^&*()'
+  }
+
 
   //check that at least one type of character was selected.
 
