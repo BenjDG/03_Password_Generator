@@ -15,9 +15,10 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword() {
-  console.log('started');
+  //console.log('started');
   //variable for character set
 
+  var passwordValue = "";
   var characterSet = "";
   var lowercaseLetters = false;
   var uppercaseLetters = false;
@@ -36,7 +37,7 @@ function generatePassword() {
 
 
   // check for positive integer between 8-128
-  console.log(Number.isInteger(numberOfChar));
+  //console.log(Number.isInteger(numberOfChar));
 
 
   //user validation
@@ -45,7 +46,7 @@ function generatePassword() {
       //console.log('Yay');
       inputCheck = true;
     } else {
-      console.log('error')
+      //console.log('error')
       var passwordLength = prompt("Try again, for password length enter a number between 8 - 128.");
       var numberOfChar = Number(passwordLength);
     }
@@ -69,11 +70,12 @@ function generatePassword() {
     specialCharacters = confirm('Do you want special characters in your password?');
 
 
-    console.log(lowercaseLetters);
-    console.log(uppercaseLetters);
-    console.log(numericCharacters);
-    console.log(specialCharacters);
+    // console.log(lowercaseLetters);
+    // console.log(uppercaseLetters);
+    // console.log(numericCharacters);
+    // console.log(specialCharacters);
 
+    //build character set
     //add lowercase to charSet
     if (lowercaseLetters) {
       characterSet = characterSet + 'abcdefghijklmnopqrstuvwxyz';
@@ -98,25 +100,25 @@ function generatePassword() {
       characterCheck = true;
     }
 
+    //check that at least one type of character was selected.
     if (characterCheck === false)
     alert('Please choose at least one type of characters.');
   }
 
-  console.log(characterSet);
-
-  //check that at least one type of character was selected.
-
-  //build character set
-
+  // console.log(characterSet);
+  // console.log(characterSet.length);
+  
   //random generator for picking characters from variable iterate once for each number of characters
+  for (var i = 0; i < numberOfChar; i++) {
+    
+    var charIndex = Math.floor(Math.random() * characterSet.length);
+    passwordValue += characterSet[charIndex];
+    
 
+  }
+
+  // console.log(passwordValue);
   //return password
-
-
-
-
-
-
-
+return passwordValue;
 
 }
