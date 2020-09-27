@@ -34,13 +34,17 @@ function generatePassword() {
 
   console.log(Number.isInteger(numberOfChar));
   // check for positive integer between 8-128
+
+
+
+
   while (inputCheck === false) {
     if (Number.isInteger(numberOfChar) && passwordLength >= 8 && passwordLength <= 128) {
 
       console.log('Yay');
-      inputCheck === true;
+      inputCheck = true;
     } else {console.log('error')
-    var passwordLength = prompt("For password length enter a number between 8 - 128.");  
+    var passwordLength = prompt("Try again, for password length enter a number between 8 - 128.");  
     var numberOfChar = Number(passwordLength);
   
   }
