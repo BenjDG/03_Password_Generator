@@ -32,31 +32,56 @@ function generatePassword() {
   var numberOfChar = Number(passwordLength);
   //console.log(passwordLength);
 
+
+
+// check for positive integer between 8-128
   console.log(Number.isInteger(numberOfChar));
-  // check for positive integer between 8-128
+  
 
-
-
-
+  //user validation
   while (inputCheck === false) {
     if (Number.isInteger(numberOfChar) && passwordLength >= 8 && passwordLength <= 128) {
-
-      console.log('Yay');
+      //console.log('Yay');
       inputCheck = true;
-    } else {console.log('error')
-    var passwordLength = prompt("Try again, for password length enter a number between 8 - 128.");  
-    var numberOfChar = Number(passwordLength);
-  
+    } else {
+      console.log('error')
+      var passwordLength = prompt("Try again, for password length enter a number between 8 - 128.");
+      var numberOfChar = Number(passwordLength);
+    }
+
+    //console.log("test1");
   }
 
-    console.log("test1");
-  }
+  //console.log('moving on');
 
-console.log('moving on');
+
   //prompt do you want lowercase?
+  lowercaseLetters = confirm('Do you want lowercase characters in your password?');
+
   //prompt do you want uppercase?
+  uppercaseLetters = confirm('Do you want uppercase characters in your password?');
+
   //prompt do you want numeric?
+  numericCharacters = confirm('Do you want numeric characters in your password?');
+
   //prompt do you want special characters?
+  specialCharacters = confirm('Do you want special characters in your password?');
+
+
+  console.log(lowercaseLetters);
+  console.log(uppercaseLetters);
+  console.log(numericCharacters);
+  console.log(specialCharacters);
+
+  //add lowercase to charSet
+  if (lowercaseLetters === true) {
+    characterSet = characterSet + 'abcdefghijklmnopqrstuvwxyz';
+  }
+  
+  //add uppercase to charSet
+  if (uppercaseLetters === true) {
+    characterSet = characterSet + 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  }
 
   //check that at least one type of character was selected.
 
